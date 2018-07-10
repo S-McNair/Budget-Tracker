@@ -18,7 +18,7 @@ export default class ExpenseEnteries extends React.Component {
                 id='expense-description' />
             </div>
             <div className='form-group' >
-              <label htmlFor='expense-amount'>Amount</label>
+              <label htmlFor='expense-amount' >Amount</label>
               <div className='input-group'>
               <span className='input-group-addon'>$</span>
               <input
@@ -34,7 +34,7 @@ export default class ExpenseEnteries extends React.Component {
               <thead>
                 <tr>
                   <th>Description</th>
-                  <th> {/*style={ { width:120 } } */} >Amount</th>
+                  <th> {/*style={ { width:120 } } */} Amount</th>
                   </tr>
                   </thead>
                   <tbody>
