@@ -51,8 +51,8 @@ export default class ExpenseEnteries extends React.Component {
                             <input type='text'
                                 className='form-control'
                                 id='expense-description'
-                                value={description}
-                                onChange={this.handleDescriptionInput} />
+                                value={ description }
+                                onChange={ this.handleDescriptionInput } />
                         </div>
                         <div className='form-group' >
                             <label htmlFor='expense-amount' >Amount</label>
@@ -60,30 +60,30 @@ export default class ExpenseEnteries extends React.Component {
                                 <span className='input-group-addon'>$</span>
                                 <input
                                     type='text'
-                                    className='formo-control'
+                                    className='form-control'
                                     id='expense-amount'
-                                    value={amount}
+                                    value={ amount }
                                     onChange={ this.handleAmountInput } />
                             </div>
                         </div>
                         <button type='button'
-                            className='btn btn-danger col-12 mb-5'
-                            onClick={this.handleAddExpense} >
+                                className='btn btn-danger col-12 mb-5'
+                                onClick={ this.handleAddExpense } >
                             + Add Expense
-              </button>
+                          </button>
                         <table className='table table-sm table-hover'>
                             <thead>
                                 <tr>
                                     <th>Description</th>
-                                    <th> {/*style={ { width:120 } } */} Amount</th>
+                                    <th> Amount</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     lineItems.map(lineItem => (
                                         <tr>
-                                            <td>{lineItem.description}</td>
-                                            <td>${lineItem.amount.toFixed(2)}</td>
+                                            <td>{ lineItem.description }</td>
+                                            <td>${ lineItem.amount.toFixed(2) }</td>
                                         </tr>
                                     ))
                                 }

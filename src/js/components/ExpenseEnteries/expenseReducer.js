@@ -6,7 +6,7 @@ const defaultState = {
 
 export default function ExpenseReducer(state = defaultState, action) {
   // the 'state = defaultState' in new ES6 syntax for defining a default value on a param
-  const { type, paylod } = action;
+  const { type, payload } = action;
 
   switch (type) {
     // in the case of the Update Description action
@@ -33,12 +33,12 @@ export default function ExpenseReducer(state = defaultState, action) {
 
     // in the case of the Add Expense action
     case 'ADD_EXPENSE': {
-      // ------> // creates an empty object??????
+// ------> // creates an empty object??????
       const { description, amount } = action.payload;
       // returns and object
       return {
         description: '',
-        action: '',
+        amount: '',
         lineItems: [
           // with all of the previous line items (objects)
           ...state.lineItems,

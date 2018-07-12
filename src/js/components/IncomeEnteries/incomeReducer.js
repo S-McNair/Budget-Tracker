@@ -6,7 +6,7 @@ const defaultState = {
 
 export default function IncomeReducer(state = defaultState, action) {
   // the 'state = defaultState' in new ES6 syntax for defining a default value on a param
-  const { type, paylod } = action;
+  const { type, payload } = action;
 
   switch (type) {
     case 'UPDATE_INCOME_DESCRIPTION': {
@@ -24,13 +24,13 @@ export default function IncomeReducer(state = defaultState, action) {
     }
 
     case 'ADD_INCOME': {
-      const { decription, amount } = action.payload;
+      const { description, amount } = action.payload;
       return {
         description: '',
-        action: '',
-        lineItem: [
+        amount: '',
+        lineItems: [
           ...state.lineItems,
-          { decription, amount }
+          { description, amount }
         ]
       };
     }

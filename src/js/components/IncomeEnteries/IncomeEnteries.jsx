@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
   updateIncomeDescription,
-  UpdateIncomeAmount,
+  updateIncomeAmount,
   addIncome
 } from './incomeActions';
 
@@ -24,12 +24,12 @@ export default class IncomeEnteries extends React.Component {
   handleAmountInput(event) {
     const { dispatch } = this.props;
     const { value } = event.target;
-    dispatch(UpdateIncomeAmount(value));
+    dispatch(updateIncomeAmount(value));
   }
 
   handleAddIncome() {
     const { description, amount, dispatch } = this.props;
-    dispatch(addExpense(description, amount));
+    dispatch(addIncome(description, amount));
   }
 
   render() {
@@ -45,7 +45,7 @@ export default class IncomeEnteries extends React.Component {
                 className='form-control'
                 id='income-description'
                 value= { description }
-                onChange= {this.handleDescriptionInput } />
+                onChange= { this.handleDescriptionInput } />
             </div>
             <div className='form-group' >
               <label htmlFor='income-amount'>Amount</label>
@@ -53,31 +53,31 @@ export default class IncomeEnteries extends React.Component {
                 <span className='input-group-addon'>$</span>
                 <input
                   type='text'
-                  className='formo-control'
+                  className='form-control'
                   id='income-amount'
-                  value= { description }
+                  value= { amount }
                   onChange= { this.handleAmountInput } />
               </div>
             </div>
-            <button type='button' className='btn  btn-success col-12 mb-5'>
+            <button type='button'
+                    className='btn  btn-success col-12 mb-5'
+                    onClick={ this.handleAddIncome } >
               + Add income
               </button>
-            <table type='button'
-                   className='table table-sm table-hover'
-                   onChange= { this.handleAddIncome }>
+            <table className='table table-sm table-hover' >
               <thead>
                 <tr>
                   <th>Description</th>
-                  <th> {/*style={ { width:120 } } */} Amount</th>
+                  <th> Amount</th>
                 </tr>
               </thead>
               <tbody>
                 {
-                  lineItems.map(lineItem=> (
-                    <tr>
-                      <td>{ lineItem.description }</td>
-                      <td>{ lineItem.amount.toFixed(2) }</td>
-                    </tr>
+                    lineItems.map(lineItem => (
+                      <tr>
+                        <td>{ lineItem.description }</td>
+                        <td>${ lineItem.amount.toFixed(2) }</td>
+                      </tr>
                   ))
                 }
               </tbody>
